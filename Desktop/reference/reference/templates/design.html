@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+{% block title %}Codecool Series Database{% endblock %}
+{% block content %}
+<nav class="breadcrumb">
+    <a href="#">Game of Thrones</a>
+    <span class="separator">&gt;</span>
+    <a href="#">Season 3</a>
+    <span class="separator">&gt;</span>
+    <a href="#">Episode 8</a>
+</nav>
+<h1 class="title text-center">Welcome page</h1>
+<div class="card">
+    <h2>Welcome TV show lovers!</h2>
+    <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
+    <p></p>
+    <p>Okay, actually this is a designed dumb page without any logic.</p>
+    <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
+        in-depth
+        navigation.
+    </p>
+</div>
+<div class="card">
+    This is an example for a table:
+    <table>
+        <thead>
+            <tr>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+                <th class="action-column">e</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lorem</td>
+                <td>Ipsum</td>
+                <td>Dolor</td>
+                <td>Sit amet</td>
+                <td class="action-column">
+                    <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                    <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Lorem</td>
+                <td>Ipsum</td>
+                <td>Dolor</td>
+                <td>Sit amet</td>
+                <td class="action-column">
+                    <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                    <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Lorem</td>
+                <td>Ipsum</td>
+                <td>Dolor</td>
+                <td>Sit amet</td>
+                <td class="action-column">
+                    <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                    <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Lorem</td>
+                <td>Ipsum</td>
+                <td>Dolor</td>
+                <td>Sit amet</td>
+                <td class="action-column">
+                    <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                    <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Lorem</td>
+                <td>Ipsum</td>
+                <td>Dolor</td>
+                <td>Sit amet</td>
+                <td class="action-column">
+                    <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                    <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card">
+    This is an example for pagination:
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="/shows/most-rated/pages/1" class="active">1</a>
+        <a href="/shows/most-rated/pages/2">2</a>
+        <a href="/shows/most-rated/pages/3">3</a>
+        <a href="/shows/most-rated/pages/4">4</a>
+        <a href="/shows/most-rated/pages/5">5</a>
+        <a href="#">&raquo;</a>
+    </div>
+</div>
+<div class="card detailed-view">
+    <script type="text/javascript">
+        var videoId = 'Xithigfg7dA';
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/embed-youtube.js') }}"></script>
+    <p>And here is a "detailed" kind of view:</p>
+    <div class="row">
+        <div class="col col-twothird">
+            <h2>Deadpool</h2>
+            <p class="small grayed">1h 48min <span class="separator">|</span> 8.6&#9734; <span class="separator">|</span>
+                Action, Adventure, Comedy</p>
+            <p>A fast-talking mercenary with a morbid sense of humor is subjected to a rogue experiment that
+                leaves
+                him with accelerated healing powers and a quest for revenge.</p>
+            <p><b>Stars:</b>&nbsp;Ryan Reynolds, Morena Baccarin, T.J. Miller</p>
+        </div>
+        <div id="player" class="trailer col col-third"></div>
+    </div>
+</div>
+<div class="card">
+    <p>A form example to edit a TV show's episode:</p>
+    <form action="#" method="post">
+        <p class="form-element">
+            <label class="form-element-label" for="form-example-show">Show:</label>
+            <select name="show" id="form-example-show">
+                <option value="">Game of Thrones (2011)</option>
+                <option value="">Lost (2004)</option>
+                <option value="">South Park (1997)</option>
+                <option value="">How I met your mother (2005)</option>
+                <option value="">Legion (2017)</option>
+            </select>
+        </p>
+        <p class="form-element">
+            <label class="form-element-label" for="form-example-season">Season:</label>
+            <input type="number" name="season" id="form-example-season" value="" min="1" max="30">
+        </p>
+        <p class="form-element">
+            <label class="form-element-label" for="form-example-episode">Episode:</label>
+            <input type="number" name="episode" id="form-example-episode" value="" min="1" max="100">
+        </p>
+        <p class="form-element">
+            <label class="form-element-label" for="form-example-title">Title:</label>
+            <input type="text" name="name" id="form-example-title" value="" placeholder="What the pencake?">
+        </p>
+        <p class="form-element">
+            <label class="form-element-label" for="form-example-length">Length:</label>
+            <input type="number" name="length" id="form-example-length" value="" min="1" max="999">
+            <span>min.</span>
+        </p>
+        <p class="text-center">
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>
+{% endblock %}
