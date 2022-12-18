@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% block title %}Shows{% endblock %}
+{% block content %}
+
+<h1 class="title text-center">Shows</h1>
+<div class="card">
+    <table id="table">
+        <thead>
+            <tr>
+                <th>
+                    <a href="/shows/order-by-title-{% if order == "ASC" %}DESC{% else %}ASC{% endif %}">
+                        Title {% if order_by == "title" and order == "ASC" %}&#8679;
+                        {% elif order_by == "title" and order == "DESC" %}&#8681;{% endif %}
+                    </a>
+                </th>
+                <th>
+                    <a href="/shows/order-by-year-{% if order == "ASC" %}DESC{% else %}ASC{% endif %}">
+                        Year {% if order_by == "year" and order == "ASC" %}&#8679;
+                        {% elif order_by == "year" and order == "DESC" %}&#8681;{% endif %}
+                    </a>
+                </th>
+                <th>
+                    <a href="/shows/order-by-runtime-{% if order == "ASC" %}DESC{% else %}ASC{% endif %}">
+                        Runtime (min) {% if order_by == "runtime" and order == "ASC" %}&#8679;
+                        {% elif order_by == "runtime" and order == "DESC" %}&#8681;{% endif %}
+                    </a>
+                </th>
+                <th>
+                    <a href="/shows/order-by-rating-{% if order == "ASC" %}DESC{% else %}ASC{% endif %}">
+                        Rating {% if order_by == "rating" and order == "ASC" %}&#8679;
+                        {% elif order_by == "rating" and order == "DESC" %}&#8681;{% endif %}
+                    </a>
+                </th>
+                <th>Genres</th>
+                <th>Trailer</th>
+                <th>Homepage</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            {% for show in shows %}
+
+            <tr>
+                <td><a href="/show/{{ show.id }}">{{ show.title }}</a></td>
+                <td>{{ show.year }}</td>
+                <td>{{ show.runtime }}</td>
+                <td>{{ show.rating_string }}</td>
+                <td>{{ show.genres_list }}</td>
+                <td>
+                    {% if show.trailer %}
+                    <a href="{{ show.trailer }}">Trailer</a>
+                    {% else %}
+                    No URL
+                    {% endif %}
+                </td>
+                <td>
+                    {% if show.homepage %}
+                    <a href="{{ show.homepage }}">Homepage</a>
+                    {% else %}
+                    No URL
+                    {% endif %}
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="card">
+    <div class="pagination">
+        <a {% if page_number == 1 %} href="#" {% else %} href="{{ page_number - 1 }}"
+            {% endif %}>&laquo;</a>
+        {% for i in range(shown_pages_start, shown_pages_end + 1) %}
+        <a href="{{ i }}" {% if page_number == i %} class="active" {% endif %}>{{ i }}</a>
+        {% endfor %}
+        <a {% if page_number == pages_count %} href="#" {% else %} href="{{ page_number + 1 }}"
+            {% endif %}>&raquo;</a>
+    </div>
+</div>
+{% endblock %}
